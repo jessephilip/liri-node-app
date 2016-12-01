@@ -1,23 +1,26 @@
-// import twitter keys
-var keys = require("./keys.js");
-console.log(keys.twitterKeys);
+// import twitter function
+var twitter = require("./twitter.js");
+console.log(twitter);
 
 // switch statement to take in commands
 switch (process.argv[2]) {
     case "my-tweets":
-        // This will show your last 20 tweets and when they were created at in your terminal/bash window.
-        console.log("twitter tweets");
+        // This will show your last 20 tweets and when they were created in your terminal/bash window.  
+        twitter();    
 
         break;
 
     case "spotify-this-song":
+        var search = process.argv;
+        search = search.slice(3);
+        search = search.join(" ");    
+        console.log(search);
         // This will show the following information about the song in your terminal/bash window
         // Artist(s)
         // The song's name
         // A preview link of the song from Spotify
         // The album that the song is from
         // if no song is provided then your program will default to "The Sign" by Ace of Base
-        console.log("spotify this song");
 
         break;
 
@@ -50,5 +53,6 @@ switch (process.argv[2]) {
         break;
 
     default:
+        console.log("default");
         break;
 }
