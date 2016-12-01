@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/jessephilip/liri-node-app#readme",
   "dependencies": {
+    "inquirer": "^1.2.3",
     "spotify-web-api-node": "^2.3.6",
     "twitter": "^1.4.0"
   }
