@@ -1,5 +1,6 @@
 // import twitter function
 var twitter = require("./twitter.js");
+var spotifyApi = require("./spotify.js");
 var inquirer = require("inquirer");
 
 // ask questions for user experience
@@ -24,7 +25,9 @@ inquirer.prompt([{
                 message: "Spotify this song: ",
                 name: "song"
             }]).then(function (songify) {
-                console.log(songify.song);
+                //console.log(songify.song);
+
+                spotifyApi(songify.song);
             });
             // This will show the following information about the song in your terminal/bash window
             // Artist(s)

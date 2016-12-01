@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceRoot}\\liri.js",
+            "program": "${workspaceRoot}\\spotify.js",
             "cwd": "${workspaceRoot}"
         },
         {
