@@ -26,8 +26,11 @@ var twitterSearch = function twitterSearch() {
             tweetsArray.push(tweet);
         }
 
-
-        console.log(tweetsArray);
+        for (var i = 0; i < tweetsArray.length; i++) {
+            console.log("==============================================================================================================\n");
+            console.log(i + 1 + ". " + tweetsArray[i].time);
+            console.log(tweetsArray[i].text + "\n");
+        }
 
     });
 }

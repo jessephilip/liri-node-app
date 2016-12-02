@@ -13,7 +13,7 @@ var spotifyApi = new SpotifyWebApi();
 function spotifySearch(searchTerm) {
 
 	// search for tracks matching searchTerm
-	spotifyApi.searchTracks("track:" + searchTerm)
+	spotifyApi.searchTracks(searchTerm)
 		.then(function (data) {
 
 			for (var i = 0; i < data.body.tracks.items.length; i++) {
@@ -45,7 +45,14 @@ function spotifySearch(searchTerm) {
 			}
 
 			// print out collected data
-			console.log(songs);
+			for (var i = 0; i < songs.length; i++) {
+				console.log("==============================================================================================================\n");
+				console.log(i + 1 + ".");
+				console.log("Artist(s): " + songs[i].artists);
+				console.log("Album: " + songs[i].album);
+				console.log("Song Title: " + songs[i].name);
+				console.log("Preview URL: " + songs[i].url + "\n");
+			}
 
 		}, function (err) {
 			console.log('Something went wrong!', err);
