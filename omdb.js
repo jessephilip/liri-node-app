@@ -65,7 +65,7 @@ function omdbSearch(searchTerm) {
             console.log("Rotton Tomatoes: " + movie.tomato);
             console.log("Rotton Tomatoes URL: " + movie.tomatoUrl);
             console.log("==============================================================================================================\n");
-            
+
 
         })
     }).catch(console.error.bind(console));

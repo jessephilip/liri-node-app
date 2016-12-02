@@ -24,17 +24,29 @@ inquirer.prompt([{
     // switch statement to take in commands
     switch (response.type) {
         case "Twitter":
+
+            // log command
+            logCommand(response.type + "\n");
+
             // This will show your last 20 tweets and when they were created in your terminal/bash window.  
             twitterApi();
 
             break;
 
         case "Spotify":
+
+            // log command
+            logCommand(response.type + ", ");
+
             inquirer.prompt([{
                 type: "input",
                 message: "Spotify this song: ",
                 name: "song"
             }]).then(function (songify) {
+
+                // log command
+                logCommand(songify.song + "\n");
+
                 // if no song is provided then your program will default to "The Sign" by Ace of Base
                 if (!songify.song) spotifyApi("track:The Sign artist:Ace of Base");
 
@@ -46,11 +58,19 @@ inquirer.prompt([{
             break;
 
         case "OMDB":
+
+            // log command
+            logCommand(response.type + ", ");
+
             inquirer.prompt([{
                 type: "input",
                 message: "Movify this movie: ",
                 name: "movie"
             }]).then(function (movify) {
+
+                // log command
+                logCommand(movify.movie + "\n");
+
                 // If the user doesn't type a movie in, the program will output data for the movie 'Mr. Nobody.'
                 if (!movify.movie) omdbApi("Mr. Nobody");
                 else omdbApi(movify.movie);
@@ -59,10 +79,11 @@ inquirer.prompt([{
             break;
 
         case "Liri":
-            // Using the fs Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
-            // It should run spotify-this-song for "I Want it That Way," as follows the text in random.txt.
-            // Feel free to change the text in that document to test out the feature for other commands.
 
+            // log command
+            logCommand(response.type + "\n");
+
+            // Liri takes the text inside of random.txt and uses it to call one of Liri's commands.
             liri();
 
             break;
@@ -93,8 +114,15 @@ function liri() {
                 break;
 
             default:
-                console.log("Incorrect format. Correct format.");
+                console.log("Incorrect format. Please submit command in correct format.");
+                console.log('Correct format example: command,"search term"');
                 break;
         }
+    });
+}
+
+function logCommand(command) {
+    fs.appendFile("log.txt", command, function (err) {
+        if (err) throw err;
     });
 }
